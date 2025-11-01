@@ -1,29 +1,618 @@
-<!-- index.html — Minimal -->
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>My Project</title>
-  <meta name="description" content="A short one-line description." />
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.5;
-      display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#f7f8fb;color:#111}
-    main{max-width:900px;padding:32px;text-align:left}
-    h1{margin:0 0 8px}
-    p.lead{margin:0 0 16px;color:#333}
-    footer{margin-top:20px;font-size:0.9rem;color:#666}
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Phonemes as a Bridge</title>
+    <style>
+        /* Minimal, readable defaults */
+        :root {
+            --w: 960px;
+            --g: 12px;
+            --fg: #111;
+            --muted: #666;
+            --bg: #fff;
+            --line: #eee;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        }
+
+        main {
+            max-width: var(--w);
+            margin: 24px auto 48px;
+            padding: 0 16px;
+        }
+
+        header {
+            margin: 8px 0 24px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin: 0 0 8px;
+        }
+
+        .authors {
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .links a {
+            margin-right: 12px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid var(--line);
+            margin: 20px 0;
+        }
+
+        section {
+            margin: 20px 0 28px;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            margin: 0 0 8px;
+        }
+
+        h3 {
+            font-size: 1rem;
+            margin: 0 0 8px;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+
+        /* Simple grid for samples */
+        .samples {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .samples th,
+        .samples td {
+            border-top: 1px solid var(--line);
+            padding: 8px;
+            vertical-align: top;
+        }
+
+        .samples th {
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .caption {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        code {
+            background: #f7f7f7;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        footer {
+            margin-top: 36px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Keep audio compact */
+        audio {
+            width: 100%;
+        }
+    </style>
 </head>
+
 <body>
-  <main>
-    <h1>Project Title</h1>
-    <p class="lead">Short one-sentence summary of the project or dataset.</p>
-    <p>Quick links:
-      <a href="README.md">README</a> ·
-      <a href="https://github.com">Repository</a>
-    </p>
-    <footer>© Anonymous • Generated init page</footer>
-  </main>
+    <main>
+        <header>
+            <h1>Phonemes as a Bridge: Strengthening Speech-Text Alignment and Controllability in Full-duplex Multimodal
+                LLMs</h1>
+            <div class="authors">Anonymous submission</div>
+            <!-- <div> </div> -->
+        </header>
+
+        <section id="abstract">
+            <h2>Abstract</h2>
+            <p>
+                TBU
+                <!-- One or two sentences summarizing the method and key results. -->
+                <!-- Keep this short. For details, see the paper. -->
+            </p>
+        </section>
+
+        <section id="samples">
+            <h2>Audio Samples</h2>
+            <p class="caption">Each row: input text, baseline, and our method.</p>
+            <h3>1. Pronunciation Accuracy</h3>
+            <table class="samples" role="table">
+                <thead>
+                    <tr>
+                        <th style="width:40%">Text (with predicted phonemes for ours)</th>
+                        <th style="width:30%">Baseline</th>
+                        <th style="width:30%">Ours (Method 2)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample 1 -->
+                    <tr>
+                        <td>
+                            The <span style="color: red;">recalcitrant[r\I"k{l.sI.tr\@nt]</span>
+                            student’s["stju:.d@nts] obdurate["Qb.dU.r\It]</span> refusal to
+                            comply frustrated the faculty.
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/1_accuracy/0_baseline.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/1_accuracy/0_method2.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                    </tr>
+
+                    <!-- Sample 2 -->
+                    <tr>
+                        <td>
+                            The <span
+                                style="color: red;">floccinaucinihilipilification["flQ.t_Si:.naU_^"t_Si:.ni:%hI.l@.p@.l@.f@"keI_^.S@n]</span>
+                            of
+                            the proposal was apparent in the board’s response.
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/1_accuracy/1_baseline.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/1_accuracy/1_method2.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                    </tr>
+
+                    <!-- Sample 3 -->
+                    <tr>
+                        <td>
+                            The parsimonious[%pA:r\.sI"moU_^.ni:.@s] writer employed zeugma["zu:g.m@] to
+                            <span style="color: red;">economize[I"kQ.n@%maI_^z]</span> his prose.
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/1_accuracy/2_baseline.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/1_accuracy/2_method2.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3>2. Controllability</h3>
+            <table class="samples" role="table">
+                <thead>
+                    <tr>
+                        <th style="width:40%">Text</th>
+                        <th style="width:20%">Baseline</th>
+                        <th style="width:20%">Ours (Method 2)</th>
+                        <th style="width:20%">Ours (Method 2)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample 1 -->
+                    <tr>
+                        <td>
+                            Workers handling["h{nd.lIN] <span style="color: red;">lead[lEd vs. li:d]</span> must
+                            wear protective gear to prevent
+                            poisoning.
+                        </td>
+                        <td>
+                            <br>
+                            <audio controls preload="none">
+                                <source src="audio/2_controllability/0_baseline.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            lead[lEd]
+                            <audio controls preload="none">
+                                <source src="audio/2_controllability/0_method2_case1.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            lead[li:d]
+                            <audio controls preload="none">
+                                <source src="audio/2_controllability/0_method2_case2.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                    </tr>
+
+                    <!-- Sample 2 -->
+                    <tr>
+                        <td>
+                            The <span style="color: red;">lead[lEd vs. li:d]</span> in the batteries of the car
+                            had corroded, causing it to not start.
+                        </td>
+                        <td>
+                            <br>
+                            <audio controls preload="none">
+                                <source src="audio/2_controllability/1_baseline.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            lead[lEd]
+                            <audio controls preload="none">
+                                <source src="audio/2_controllability/1_method2_case1.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            lead[li:d]
+                            <audio controls preload="none">
+                                <source src="audio/2_controllability/1_method2_case2.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                    </tr>
+
+                    <!-- Sample 3 -->
+                    <tr>
+                        <td>
+                            The archer raised his <span style="color: red;">bow["boU_^ vs. "baU_^"]</span>
+                            and aimed carefully at the target ahead.
+                        </td>
+                        <td>
+                            <br>
+                            <audio controls preload="none">
+                                <source src="audio/2_controllability/2_baseline.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            bow["boU_^]
+                            <audio controls preload="none">
+                                <source src="audio/2_controllability/2_method2_case1.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            bow["baU_^]
+                            <audio controls preload="none">
+                                <source src="audio/2_controllability/2_method2_case2.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                    </tr>
+
+                    <!-- Sample 4 -->
+                    <tr>
+                        <td>
+                            A cool <span style="color: red;">wind["wInd vs. "waI_^nd]</span> swept across the beach
+                            as the sun set.
+                        </td>
+                        <td>
+                            <br>
+                            <audio controls preload="none">
+                                <source src="audio/2_controllability/3_baseline.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            wind["wInd]
+                            <audio controls preload="none">
+                                <source src="audio/2_controllability/3_method2_case1.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            wind["waI_^nd]
+                            <audio controls preload="none">
+                                <source src="audio/2_controllability/3_method2_case2.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3>3. Multilinguality</h3>
+            <table class="samples" role="table">
+                <thead>
+                    <tr>
+                        <th style="width:40%">Text</th>
+                        <th style="width:20%">Baseline</th>
+                        <th style="width:20%">Ours (Method 2, Case 1)</th>
+                        <th style="width:20%">Ours (Method 2, Case 2)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample 1 -->
+                    <tr>
+                        <td>
+                            J'en[ZA~] veux[v2] <span style="color: red;">plus.[plys vs. ply]</span>
+                        </td>
+                        <td>
+
+                            <audio controls preload="none">
+                                <source src="audio/3.1_french/0_baseline.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            plus.[plys]
+                            <audio controls preload="none">
+                                <source src="audio/3.1_french/0_method2_case1.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            plus.[ply]
+                            <audio controls preload="none">
+                                <source src="audio/3.1_french/0_method2_case2.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                    </tr>
+
+                    <!-- Sample 2 -->
+                    <tr>
+                        <td>
+                            Des[de] professeurs[pRO.fE.s9R] <span style="color: red;">résident[Re.zi.dA~ vs.
+                                Re.zid]</span> dans[dA~] cet[sEt]
+                            appartment.[a.paR.mA~]
+
+
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/3.1_french/1_baseline.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            résident[Re.zi.dA~]
+                            <audio controls preload="none">
+                                <source src="audio/3.1_french/1_method2_case1.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            résident[Re.zid]
+                            <audio controls preload="none">
+                                <source src="audio/3.1_french/1_method2_case2.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3>4. Generalizability to Unseen Languages</h3>
+            <h4>4.1. Korean</h4>
+            <table class="samples" role="table">
+                <thead>
+                    <tr>
+                        <th style="width:60%">Text (Original and Romanization with phonemes for ours)</th>
+                        <th style="width:20%">Baseline</th>
+                        <th style="width:20%">Ours (Method2)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample 1 -->
+                    <tr>
+                        <td>
+                            Original: 테스트 입니다. 치킨 은 살 안 쪄요 살은 내가 쪄요.<br>
+                            Romanization:
+                            teseuteu[t_he.sM.t_hM] imnida.[im.ni.da]
+                            chikineun[t_s\_hi.k_hi.nMn] sal[s_hal] an[an] jjeoyo[t_s\jV.jo] saleun[s_ha.Mn] naega[nE.ga]
+                            jjeoyo.[t_s\jV.jo]
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/4.1_korean/0_baseline.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/4.1_korean/0_method2.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                    </tr>
+
+                    <!-- Sample 2 -->
+                    <tr>
+                        <td>
+                            Original: 테스트 입니다. 옆에 그래프가 미국 내 언어 사용 비율이다. <br>
+                            Romanization: teseuteu[t_he.sM.t_hM] imnida.[im.ni.da] yeope[jV.p_hM.i]
+                            geuraepeuga[kM.4E.p_hM.ga] miguk[mi.guk_}] nae[nE] eoneo[V.n.V] sayong[s\ha.joN]
+                            biyurida.[pi.jul.i.da]
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/4.1_korean/1_baseline.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/4.1_korean/1_method2.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                    </tr>
+
+                    <!-- Sample 3 -->
+                    <tr>
+                        <td>
+                            Original: 테스트 입니다. 한국은 요즘 날씨가 찜통 이라던데 다들 더위 조심 하세요! <br>
+                            Romanization: teseuteu[t_he.sM.t_hM] imnida.[im.ni.da] hangugeun[han.gu.gM.n]
+                            yojeum[jo.d_z\M]
+                            nalssiga[nal.s\_>i.ga] jjimtong[t_s\_>im.t_hoN] iradeonde[i.4a.dVn.de] dadeul[ta.dM.l]
+                            deowi[tV.wi] josim[t_s\o.s\im] haseyo![ha.se.jo]
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/4.1_korean/2_baseline.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/4.1_korean/2_method2.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4>4.2. Chinese</h4>
+            <table class="samples" role="table">
+                <thead>
+                    <tr>
+                        <th style="width:60%">Text (Original and Romanization with phonemes for ours)</th>
+                        <th style="width:20%">Baseline</th>
+                        <th style="width:20%">Ours (Method2)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample 1 -->
+                    <tr>
+                        <td>
+                            Original: 这 是 一句 废话. 影子 是 一个 视觉 现象, 不是 一个 物理 属性. <br>
+                            Romanization: zhe[t_s`7] shi[s`r\`=] yiju[i.t_s\y]
+                            feihua.[feI_^.xwa] yingzi[iN.t_sz=] shi[s`r\`=] yige[i.k7] shijue[s`r\`=.t_s\HE]
+                            xianxiang,[s\jEn.s\jAN] bushi[pu.s`r\`=] yige[i.k7] wuli[u.li] shuxing.[s`u.s\iN]
+
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/4.2_chinese/0_baseline.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/4.2_chinese/0_method2.wav" type="audio/wav" />
+                                Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                    </tr>
+
+                    <!-- Sample 2 -->
+                    <tr>
+                        <td>
+                            Original: 这 是 一句 废话. 牛顿 第一 定律 告诉 我们, 力 是 驱动 物体 运动 的 唯一 原因. <br>
+                            Romanization: zhe[t_s`7] shi[s`r\`=] yiju[i.t_s\y]
+                            feihua.[feI_^.xwa] niudun[nj@U_^.tw@n] diyi[ti.i] dinglu[tiN.ly] gaosu[kaU_^.su]
+                            women,[wo.m@n] li[li] shi[s`r\`=] qudong[t_s\_hy.tUN] wuti[u.t_hi] yundong[yn.tUN] de[t7]
+                            weiyi[weI_^.i] yuanyin.[HEn.in]
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/4.2_chinese/1_baseline.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/4.2_chinese/1_method2.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                    </tr>
+
+                    <!-- Sample 3 -->
+                    <tr>
+                        <td>
+                            Original: 这 是 一句 废话. 我 五一 带 一大家子 去 南京 玩, 住 了 家 民宿 式 酒店. <br>
+                            Romanization: zhe[t_s`7] shi[s`r\`=] yiju[i.t_s\y]
+                            feihua.[feI_^.xwa] wo[wo] wuyi[u.i] dai[taI_^] yidajiazi[i.ta.t_s\ja.t_sz=] qu[t_s\_hy]
+                            nanjing[nan.t_s\iN] wanr,[uar\`] zhu[t_s`u] le[l7] jia[t_s\ja] minsu[min.su] shi[s`r\`=]
+                            jiudian.[t_s\j@U_^.tjEn]
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/4.2_chinese/2_baseline.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/4.2_chinese/2_method2.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- 
+        <section id="ablations">
+            <h2>Optional: Ablations</h2>
+            <p class="caption">If needed, add a few focused comparisons.</p>
+            <table class="samples">
+                <thead>
+                    <tr>
+                        <th>Condition</th>
+                        <th>Audio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>No duration predictor (–DurPred)</td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/ablation_no_durpred.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Full model (Ours)</td>
+                        <td>
+                            <audio controls preload="none">
+                                <source src="audio/ablation_full.wav" type="audio/wav" />
+                            </audio>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section> -->
+
+        <section id="bibtex">
+            <h2>BibTeX</h2>
+            TBU
+            <!-- <pre
+                style="white-space:pre-wrap; border:1px solid #eee; padding:8px; border-radius:6px; background:#fafafa;">
+@inproceedings{YourKey2025,
+  title     = {Your TTS Paper Title},
+  author    = {Author, A. and Author, B. and Author, C.},
+  booktitle = {Proc. Interspeech},
+  year      = {2025}
+}
+      </pre> -->
+        </section>
+
+        <footer>
+            <hr>
+            <!-- <div>© 2025 Your Lab / University. Page last updated: Oct 31, 2025.</div> -->
+        </footer>
+    </main>
 </body>
+
 </html>
